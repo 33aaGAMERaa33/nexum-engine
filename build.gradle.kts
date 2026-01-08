@@ -29,55 +29,95 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-val generateRunInfo by tasks.registering {
-    val isRelease = findProperty("release")?.toString()?.toBoolean() ?: false
-    val outDir = layout.buildDirectory.dir("generated/sources/java")
-    val applicationPath = findProperty(if (isRelease) "release_file" else "debug_file")
+/* =========================================================
+ * TASK TIPADA E COMPATÍVEL COM CONFIGURATION CACHE
+ * ========================================================= */
+abstract class GenerateRunInfoTask : DefaultTask() {
 
-    inputs.property("is_release", isRelease)
-    inputs.property("version", project.version)
-    outputs.dir(outDir)
+    @Input
+    abstract fun getIsRelease(): Property<Boolean>
 
-    doLast {
-        val verFile = outDir.get().file("io/nexum/Version.java").asFile
-        verFile.parentFile.mkdirs()
-        verFile.writeText("""
+    @Input
+    abstract fun getVersionName(): Property<String>
+
+    @Input
+    @Optional
+    abstract fun getApplicationPath(): Property<String>
+
+    @OutputDirectory
+    abstract fun getOutputDir(): DirectoryProperty
+
+    @TaskAction
+    fun generate() {
+        val baseDir = getOutputDir().get().asFile.resolve("io/nexum")
+        baseDir.mkdirs()
+
+        baseDir.resolve("Version.java").writeText(
+            """
             package io.nexum;
             public final class Version {
-                public static final String VERSION = "${project.version}";
+                public static final String VERSION = "${getVersionName().get()}";
             }
-        """.trimIndent())
+            """.trimIndent()
+        )
 
-        val infoFile = outDir.get().file("io/nexum/RunInfo.java").asFile
-        infoFile.writeText("""
+        baseDir.resolve("RunInfo.java").writeText(
+            """
             package io.nexum;
             public final class RunInfo {
-                public static final boolean IS_RELEASE = $isRelease;
+                public static final boolean IS_RELEASE = ${getIsRelease().get()};
             }
-        """.trimIndent())
+            """.trimIndent()
+        )
 
-        val appFile = outDir.get().file("io/nexum/ApplicationFile.java").asFile
-        appFile.writeText("""
+        baseDir.resolve("ApplicationFile.java").writeText(
+            """
             package io.nexum;
             public final class ApplicationFile {
-                public static final String APPLICATION_PATH = "$applicationPath";
+                public static final String APPLICATION_PATH = "${getApplicationPath().orNull ?: ""}";
             }
-        """.trimIndent())
+            """.trimIndent()
+        )
     }
 }
 
-// --- CONFIGURAÇÃO DE DIRETÓRIOS ---
+/* =========================================================
+ * REGISTRO DA TASK
+ * ========================================================= */
+
+val generateRunInfo by tasks.registering(GenerateRunInfoTask::class) {
+
+    val releaseFlag = providers
+        .gradleProperty("release")
+        .map(String::toBoolean)
+        .orElse(false)
+
+    val appPath = providers.gradleProperty(
+        if (releaseFlag.get()) "release_file" else "debug_file"
+    )
+
+    getIsRelease().set(releaseFlag)
+    getVersionName().set(project.version.toString())
+    getApplicationPath().set(appPath)
+    getOutputDir().set(layout.buildDirectory.dir("generated/sources/java"))
+}
+
+/* =========================================================
+ * SOURCE SETS
+ * ========================================================= */
+
 sourceSets {
     main {
-        // Adiciona as pastas geradas ao compilador Java
         java.srcDir(layout.buildDirectory.dir("generated/sources/java"))
-        // Adiciona o binário do Dart como um recurso (Resource) para ser lido pelo Java
         resources.srcDir(layout.buildDirectory.dir("dart"))
     }
 }
 
-// --- VÍNCULO DE TASKS ---
-tasks.named("compileJava") {
+/* =========================================================
+ * VÍNCULO DAS TASKS
+ * ========================================================= */
+
+tasks.named<JavaCompile>("compileJava") {
     dependsOn(generateRunInfo)
 }
 
@@ -85,7 +125,10 @@ tasks.named("build") {
     dependsOn(generateRunInfo)
 }
 
-// --- TASK DE TESTE ---
+/* =========================================================
+ * TESTES
+ * ========================================================= */
+
 tasks.register<JavaExec>("runTest") {
     group = "verification"
     mainClass.set("io.nexum.TestMain")
