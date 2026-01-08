@@ -1,4 +1,4 @@
-package io.nexum.events;
+package io.nexum.engine.events;
 
 public class KeyboardInputEvent extends InputEvent {
     private final int keyCode;

@@ -1,4 +1,4 @@
-package io.nexum.models;
+package io.nexum.engine.models;
 
 public class Offset {
     private final int leftPos;

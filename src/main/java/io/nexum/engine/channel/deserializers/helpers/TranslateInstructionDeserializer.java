@@ -1,10 +1,10 @@
-package io.nexum.channel.deserializers.helpers;
+package io.nexum.engine.channel.deserializers.helpers;
 
-import io.nexum.services.HelperDeserializerService;
-import io.nexum.models.Offset;
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.HelperDeserializer;
-import io.nexum.render.instructions.TranslateInstruction;
+import io.nexum.engine.services.HelperDeserializerService;
+import io.nexum.engine.models.Offset;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.HelperDeserializer;
+import io.nexum.engine.render.instructions.TranslateInstruction;
 import org.jetbrains.annotations.NotNull;
 
 public class TranslateInstructionDeserializer implements HelperDeserializer<TranslateInstruction> {

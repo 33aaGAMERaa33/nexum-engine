@@ -1,4 +1,4 @@
-package io.nexum.exceptions;
+package io.nexum.engine.exceptions;
 
 public class HelperDeserializerRegistryException extends RuntimeException {
     public HelperDeserializerRegistryException(String message) {

@@ -1,11 +1,11 @@
-package io.nexum.channel.handlers;
+package io.nexum.engine.channel.handlers;
 
-import io.nexum.material.TextMetrics;
-import io.nexum.models.Size;
-import io.nexum.channel.PacketHandler;
-import io.nexum.channel.PacketManager;
-import io.nexum.channel.packets.RequestTextMetricsPacket;
-import io.nexum.channel.packets.SendTextMetricsPacket;
+import io.nexum.engine.material.TextMetrics;
+import io.nexum.engine.models.Size;
+import io.nexum.engine.channel.PacketHandler;
+import io.nexum.engine.channel.PacketManager;
+import io.nexum.engine.channel.packets.RequestTextMetricsPacket;
+import io.nexum.engine.channel.packets.SendTextMetricsPacket;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

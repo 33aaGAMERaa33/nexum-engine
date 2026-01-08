@@ -1,6 +1,6 @@
-package io.nexum.material;
+package io.nexum.engine.material;
 
-import io.nexum.models.Size;
+import io.nexum.engine.models.Size;
 
 public class TextMetrics {
     private final Size size;

@@ -1,7 +1,7 @@
-package io.nexum.channel.packets;
+package io.nexum.engine.channel.packets;
 
-import io.nexum.channel.Packet;
-import io.nexum.render.RenderContextConsumer;
+import io.nexum.engine.channel.Packet;
+import io.nexum.engine.render.RenderContextConsumer;
 import org.jetbrains.annotations.NotNull;
 
 public class SendRenderContextPacket extends Packet {

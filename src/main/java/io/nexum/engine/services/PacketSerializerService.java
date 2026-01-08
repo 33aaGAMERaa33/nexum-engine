@@ -1,10 +1,10 @@
-package io.nexum.services;
+package io.nexum.engine.services;
 
-import io.nexum.storages.PacketSerializerRegistry;
-import io.nexum.exceptions.PacketSerializationException;
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.Packet;
-import io.nexum.channel.PacketSerializer;
+import io.nexum.engine.storages.PacketSerializerRegistry;
+import io.nexum.engine.exceptions.PacketSerializationException;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.Packet;
+import io.nexum.engine.channel.PacketSerializer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

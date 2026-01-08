@@ -1,4 +1,4 @@
-package io.nexum.channel;
+package io.nexum.engine.channel;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

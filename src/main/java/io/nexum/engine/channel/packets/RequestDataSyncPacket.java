@@ -1,6 +1,6 @@
-package io.nexum.channel.packets;
+package io.nexum.engine.channel.packets;
 
-import io.nexum.channel.Packet;
+import io.nexum.engine.channel.Packet;
 
 public class RequestDataSyncPacket extends Packet {
 }

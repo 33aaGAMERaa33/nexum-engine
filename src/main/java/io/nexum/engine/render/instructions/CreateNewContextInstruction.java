@@ -1,8 +1,8 @@
-package io.nexum.render.instructions;
+package io.nexum.engine.render.instructions;
 
-import io.nexum.render.RenderContext;
-import io.nexum.render.RenderContextConsumer;
-import io.nexum.render.RenderInstruction;
+import io.nexum.engine.render.RenderContext;
+import io.nexum.engine.render.RenderContextConsumer;
+import io.nexum.engine.render.RenderInstruction;
 import org.jetbrains.annotations.NotNull;
 
 public class CreateNewContextInstruction extends RenderInstruction {

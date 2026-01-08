@@ -1,18 +1,18 @@
-package io.nexum.channel;
+package io.nexum.engine.channel;
 
-import io.nexum.channel.deserializers.*;
-import io.nexum.channel.deserializers.helpers.*;
-import io.nexum.channel.handlers.*;
-import io.nexum.channel.serializers.*;
-import io.nexum.channel.serializers.helpers.*;
-import io.nexum.services.PacketDeserializerService;
-import io.nexum.services.PacketHandlerService;
-import io.nexum.services.PacketSerializerService;
-import io.nexum.exceptions.AlreadyInitialized;
-import io.nexum.exceptions.PacketDeserializationException;
-import io.nexum.exceptions.PacketHandleException;
-import io.nexum.exceptions.PacketSerializationException;
-import io.nexum.storages.*;
+import io.nexum.engine.channel.deserializers.*;
+import io.nexum.engine.channel.deserializers.helpers.*;
+import io.nexum.engine.channel.handlers.*;
+import io.nexum.engine.channel.serializers.*;
+import io.nexum.engine.channel.serializers.helpers.*;
+import io.nexum.engine.services.PacketDeserializerService;
+import io.nexum.engine.services.PacketHandlerService;
+import io.nexum.engine.services.PacketSerializerService;
+import io.nexum.engine.exceptions.AlreadyInitialized;
+import io.nexum.engine.exceptions.PacketDeserializationException;
+import io.nexum.engine.exceptions.PacketHandleException;
+import io.nexum.engine.exceptions.PacketSerializationException;
+import io.nexum.engine.storages.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
-import static io.nexum.Engine.LOGGER;
+import static io.nexum.engine.Engine.LOGGER;
 
 public class PacketManager {
     private static @Nullable PacketManager instance;

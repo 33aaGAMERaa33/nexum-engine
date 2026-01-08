@@ -1,11 +1,11 @@
-package io.nexum.channel.deserializers.helpers;
+package io.nexum.engine.channel.deserializers.helpers;
 
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.HelperDeserializer;
-import io.nexum.services.HelperDeserializerService;
-import io.nexum.models.Offset;
-import io.nexum.models.Size;
-import io.nexum.render.instructions.ClipRectInstruction;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.HelperDeserializer;
+import io.nexum.engine.services.HelperDeserializerService;
+import io.nexum.engine.models.Offset;
+import io.nexum.engine.models.Size;
+import io.nexum.engine.render.instructions.ClipRectInstruction;
 import org.jetbrains.annotations.NotNull;
 
 public class ClipRectInstructionDeserializer implements HelperDeserializer<ClipRectInstruction> {

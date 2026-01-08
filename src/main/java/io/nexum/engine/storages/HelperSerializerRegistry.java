@@ -1,6 +1,6 @@
-package io.nexum.storages;
+package io.nexum.engine.storages;
 
-import io.nexum.channel.HelperSerializer;
+import io.nexum.engine.channel.HelperSerializer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

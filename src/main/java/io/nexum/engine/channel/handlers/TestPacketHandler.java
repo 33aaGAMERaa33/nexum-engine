@@ -1,7 +1,7 @@
-package io.nexum.channel.handlers;
+package io.nexum.engine.channel.handlers;
 
-import io.nexum.channel.PacketHandler;
-import io.nexum.channel.packets.TestPacket;
+import io.nexum.engine.channel.PacketHandler;
+import io.nexum.engine.channel.packets.TestPacket;
 import org.jetbrains.annotations.NotNull;
 
 public class TestPacketHandler implements PacketHandler<TestPacket> {

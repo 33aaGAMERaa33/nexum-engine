@@ -1,10 +1,10 @@
-package io.nexum.channel.deserializers;
+package io.nexum.engine.channel.deserializers;
 
-import io.nexum.services.HelperDeserializerService;
-import io.nexum.material.TestObject;
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.PacketDeserializer;
-import io.nexum.channel.packets.TestPacket;
+import io.nexum.engine.services.HelperDeserializerService;
+import io.nexum.engine.material.TestObject;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.PacketDeserializer;
+import io.nexum.engine.channel.packets.TestPacket;
 import org.jetbrains.annotations.NotNull;
 
 public class TestPacketDeserializer implements PacketDeserializer<TestPacket> {

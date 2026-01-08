@@ -1,8 +1,8 @@
-package io.nexum.channel.deserializers.helpers;
+package io.nexum.engine.channel.deserializers.helpers;
 
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.HelperDeserializer;
-import io.nexum.render.RenderInstruction;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.HelperDeserializer;
+import io.nexum.engine.render.RenderInstruction;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;

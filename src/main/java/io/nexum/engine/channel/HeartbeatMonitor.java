@@ -1,6 +1,6 @@
-package io.nexum.channel;
+package io.nexum.engine.channel;
 
-import io.nexum.channel.packets.HeartBeatPacket;
+import io.nexum.engine.channel.packets.HeartBeatPacket;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

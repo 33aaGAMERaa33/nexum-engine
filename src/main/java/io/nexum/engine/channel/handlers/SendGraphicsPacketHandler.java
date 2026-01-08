@@ -1,8 +1,8 @@
-package io.nexum.channel.handlers;
+package io.nexum.engine.channel.handlers;
 
-import io.nexum.Engine;
-import io.nexum.channel.PacketHandler;
-import io.nexum.channel.packets.SendRenderContextPacket;
+import io.nexum.engine.Engine;
+import io.nexum.engine.channel.PacketHandler;
+import io.nexum.engine.channel.packets.SendRenderContextPacket;
 import org.jetbrains.annotations.NotNull;
 
 public class SendGraphicsPacketHandler implements PacketHandler<SendRenderContextPacket> {

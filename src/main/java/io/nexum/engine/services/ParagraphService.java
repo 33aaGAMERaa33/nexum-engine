@@ -1,6 +1,6 @@
-package io.nexum.services;
+package io.nexum.engine.services;
 
-import io.nexum.material.TextMetrics;
+import io.nexum.engine.material.TextMetrics;
 import org.jetbrains.annotations.NotNull;
 
 public class ParagraphService {

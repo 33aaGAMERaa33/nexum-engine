@@ -1,15 +1,15 @@
-package io.nexum.render;
+package io.nexum.engine.render;
 
 
-import io.nexum.Engine;
-import io.nexum.channel.Channel;
-import io.nexum.channel.PacketManager;
-import io.nexum.events.KeyboardInputEvent;
-import io.nexum.events.PointerClickEvent;
-import io.nexum.events.PointerMoveEvent;
-import io.nexum.events.PointerScrollEvent;
-import io.nexum.models.Offset;
-import io.nexum.models.Size;
+import io.nexum.engine.Engine;
+import io.nexum.engine.channel.Channel;
+import io.nexum.engine.channel.PacketManager;
+import io.nexum.engine.events.KeyboardInputEvent;
+import io.nexum.engine.events.PointerClickEvent;
+import io.nexum.engine.events.PointerMoveEvent;
+import io.nexum.engine.events.PointerScrollEvent;
+import io.nexum.engine.models.Offset;
+import io.nexum.engine.models.Size;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;

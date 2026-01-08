@@ -1,7 +1,7 @@
-package io.nexum.storages;
+package io.nexum.engine.storages;
 
-import io.nexum.channel.Packet;
-import io.nexum.channel.PacketSerializer;
+import io.nexum.engine.channel.Packet;
+import io.nexum.engine.channel.PacketSerializer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

@@ -1,9 +1,9 @@
-package io.nexum.services;
+package io.nexum.engine.services;
 
-import io.nexum.storages.PacketHandlerRegistry;
-import io.nexum.exceptions.PacketHandleException;
-import io.nexum.channel.Packet;
-import io.nexum.channel.PacketHandler;
+import io.nexum.engine.storages.PacketHandlerRegistry;
+import io.nexum.engine.exceptions.PacketHandleException;
+import io.nexum.engine.channel.Packet;
+import io.nexum.engine.channel.PacketHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

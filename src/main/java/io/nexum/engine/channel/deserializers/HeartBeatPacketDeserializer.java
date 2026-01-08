@@ -1,8 +1,8 @@
-package io.nexum.channel.deserializers;
+package io.nexum.engine.channel.deserializers;
 
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.PacketDeserializer;
-import io.nexum.channel.packets.HeartBeatPacket;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.PacketDeserializer;
+import io.nexum.engine.channel.packets.HeartBeatPacket;
 import org.jetbrains.annotations.NotNull;
 
 public class HeartBeatPacketDeserializer implements PacketDeserializer<HeartBeatPacket> {

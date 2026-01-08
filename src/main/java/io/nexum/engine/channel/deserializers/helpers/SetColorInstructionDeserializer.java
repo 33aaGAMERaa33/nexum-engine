@@ -1,9 +1,9 @@
-package io.nexum.channel.deserializers.helpers;
+package io.nexum.engine.channel.deserializers.helpers;
 
-import io.nexum.services.HelperDeserializerService;
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.HelperDeserializer;
-import io.nexum.render.instructions.SetColorInstruction;
+import io.nexum.engine.services.HelperDeserializerService;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.HelperDeserializer;
+import io.nexum.engine.render.instructions.SetColorInstruction;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

@@ -1,6 +1,6 @@
-package io.nexum.events;
+package io.nexum.engine.events;
 
-import io.nexum.models.Offset;
+import io.nexum.engine.models.Offset;
 import org.jetbrains.annotations.NotNull;
 
 public class PointerScrollEvent extends PointerEvent {

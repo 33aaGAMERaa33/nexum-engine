@@ -1,9 +1,9 @@
-package io.nexum.channel.serializers;
+package io.nexum.engine.channel.serializers;
 
-import io.nexum.services.HelperSerializerService;
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.PacketSerializer;
-import io.nexum.channel.packets.TestPacket;
+import io.nexum.engine.services.HelperSerializerService;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.PacketSerializer;
+import io.nexum.engine.channel.packets.TestPacket;
 import org.jetbrains.annotations.NotNull;
 
 public class TestPacketSerializer implements PacketSerializer<TestPacket> {

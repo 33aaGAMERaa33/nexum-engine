@@ -1,8 +1,8 @@
-package io.nexum.channel.serializers;
+package io.nexum.engine.channel.serializers;
 
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.PacketSerializer;
-import io.nexum.channel.packets.StartPacket;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.PacketSerializer;
+import io.nexum.engine.channel.packets.StartPacket;
 import org.jetbrains.annotations.NotNull;
 
 public class StartStartPacketSerializer implements PacketSerializer<StartPacket> {

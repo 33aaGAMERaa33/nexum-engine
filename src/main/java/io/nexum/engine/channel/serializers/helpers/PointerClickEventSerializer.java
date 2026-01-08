@@ -1,9 +1,9 @@
-package io.nexum.channel.serializers.helpers;
+package io.nexum.engine.channel.serializers.helpers;
 
-import io.nexum.services.HelperSerializerService;
-import io.nexum.events.PointerClickEvent;
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.HelperSerializer;
+import io.nexum.engine.services.HelperSerializerService;
+import io.nexum.engine.events.PointerClickEvent;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.HelperSerializer;
 import org.jetbrains.annotations.NotNull;
 
 public class PointerClickEventSerializer implements HelperSerializer<PointerClickEvent> {

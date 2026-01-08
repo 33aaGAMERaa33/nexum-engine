@@ -1,6 +1,6 @@
-package io.nexum.channel;
+package io.nexum.engine.channel;
 
-import io.nexum.exceptions.AlreadyInitialized;
+import io.nexum.engine.exceptions.AlreadyInitialized;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.concurrent.*;
 
-import static io.nexum.Engine.LOGGER;
+import static io.nexum.engine.Engine.LOGGER;
 
 public class Channel {
     private static @Nullable Channel instance = null;

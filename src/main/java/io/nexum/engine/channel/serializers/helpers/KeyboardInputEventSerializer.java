@@ -1,8 +1,8 @@
-package io.nexum.channel.serializers.helpers;
+package io.nexum.engine.channel.serializers.helpers;
 
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.HelperSerializer;
-import io.nexum.events.KeyboardInputEvent;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.HelperSerializer;
+import io.nexum.engine.events.KeyboardInputEvent;
 import org.jetbrains.annotations.NotNull;
 
 public class KeyboardInputEventSerializer implements HelperSerializer<KeyboardInputEvent> {

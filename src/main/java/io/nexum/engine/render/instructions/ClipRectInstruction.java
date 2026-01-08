@@ -1,12 +1,10 @@
-package io.nexum.render.instructions;
+package io.nexum.engine.render.instructions;
 
-import io.nexum.models.Offset;
-import io.nexum.models.Size;
-import io.nexum.render.RenderContext;
-import io.nexum.render.RenderInstruction;
+import io.nexum.engine.models.Offset;
+import io.nexum.engine.models.Size;
+import io.nexum.engine.render.RenderContext;
+import io.nexum.engine.render.RenderInstruction;
 import org.jetbrains.annotations.NotNull;
-
-import java.awt.*;
 
 public class ClipRectInstruction extends RenderInstruction {
     private final @NotNull Offset offset;

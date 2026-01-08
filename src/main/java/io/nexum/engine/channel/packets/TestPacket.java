@@ -1,7 +1,7 @@
-package io.nexum.channel.packets;
+package io.nexum.engine.channel.packets;
 
-import io.nexum.material.TestObject;
-import io.nexum.channel.Packet;
+import io.nexum.engine.material.TestObject;
+import io.nexum.engine.channel.Packet;
 import org.jetbrains.annotations.NotNull;
 
 public class TestPacket extends Packet {

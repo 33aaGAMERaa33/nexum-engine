@@ -1,7 +1,7 @@
-package io.nexum.channel.packets;
+package io.nexum.engine.channel.packets;
 
-import io.nexum.events.Event;
-import io.nexum.channel.Packet;
+import io.nexum.engine.events.Event;
+import io.nexum.engine.channel.Packet;
 import org.jetbrains.annotations.NotNull;
 
 public class EventPacket extends Packet {

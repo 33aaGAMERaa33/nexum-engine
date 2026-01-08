@@ -1,4 +1,4 @@
-package io.nexum.channel;
+package io.nexum.engine.channel;
 
 import io.nexum.ApplicationFile;
 import io.nexum.RunInfo;

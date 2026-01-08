@@ -1,8 +1,8 @@
-package io.nexum.channel.serializers.helpers;
+package io.nexum.engine.channel.serializers.helpers;
 
-import io.nexum.models.Size;
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.HelperSerializer;
+import io.nexum.engine.models.Size;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.HelperSerializer;
 import org.jetbrains.annotations.NotNull;
 
 public class SizeSerializer implements HelperSerializer<Size> {

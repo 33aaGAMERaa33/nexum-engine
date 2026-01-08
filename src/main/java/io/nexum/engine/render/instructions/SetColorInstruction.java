@@ -1,7 +1,7 @@
-package io.nexum.render.instructions;
+package io.nexum.engine.render.instructions;
 
-import io.nexum.render.RenderContext;
-import io.nexum.render.RenderInstruction;
+import io.nexum.engine.render.RenderContext;
+import io.nexum.engine.render.RenderInstruction;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

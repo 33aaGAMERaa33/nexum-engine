@@ -1,4 +1,4 @@
-package io.nexum.channel;
+package io.nexum.engine.channel;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

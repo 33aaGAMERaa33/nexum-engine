@@ -1,8 +1,7 @@
-package io.nexum.render;
+package io.nexum.engine.render;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 

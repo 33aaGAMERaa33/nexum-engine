@@ -1,9 +1,9 @@
-package io.nexum.services;
+package io.nexum.engine.services;
 
-import io.nexum.storages.HelperDeserializerRegistry;
-import io.nexum.exceptions.HelperDeserializationException;
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.HelperDeserializer;
+import io.nexum.engine.storages.HelperDeserializerRegistry;
+import io.nexum.engine.exceptions.HelperDeserializationException;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.HelperDeserializer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

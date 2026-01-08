@@ -1,11 +1,11 @@
-package io.nexum.channel.deserializers;
+package io.nexum.engine.channel.deserializers;
 
-import io.nexum.render.RenderInstruction;
-import io.nexum.services.HelperDeserializerService;
-import io.nexum.channel.FriendlyBuffer;
-import io.nexum.channel.PacketDeserializer;
-import io.nexum.channel.packets.SendRenderContextPacket;
-import io.nexum.render.RenderContextConsumer;
+import io.nexum.engine.render.RenderInstruction;
+import io.nexum.engine.services.HelperDeserializerService;
+import io.nexum.engine.channel.FriendlyBuffer;
+import io.nexum.engine.channel.PacketDeserializer;
+import io.nexum.engine.channel.packets.SendRenderContextPacket;
+import io.nexum.engine.render.RenderContextConsumer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

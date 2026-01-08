@@ -1,7 +1,7 @@
-package io.nexum.render;
+package io.nexum.engine.render;
 
-import io.nexum.models.Offset;
-import io.nexum.models.Size;
+import io.nexum.engine.models.Offset;
+import io.nexum.engine.models.Size;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

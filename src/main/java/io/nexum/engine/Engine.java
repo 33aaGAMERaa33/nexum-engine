@@ -1,15 +1,15 @@
-package io.nexum;
+package io.nexum.engine;
 
-import io.nexum.channel.Channel;
-import io.nexum.channel.HeartbeatMonitor;
-import io.nexum.events.Event;
-import io.nexum.exceptions.AlreadyInitialized;
-import io.nexum.helpers.Logger;
-import io.nexum.models.Size;
-import io.nexum.channel.PacketManager;
-import io.nexum.channel.packets.EventPacket;
-import io.nexum.render.RenderContext;
-import io.nexum.render.RenderContextConsumer;
+import io.nexum.engine.channel.Channel;
+import io.nexum.engine.channel.HeartbeatMonitor;
+import io.nexum.engine.events.Event;
+import io.nexum.engine.exceptions.AlreadyInitialized;
+import io.nexum.engine.helpers.Logger;
+import io.nexum.engine.models.Size;
+import io.nexum.engine.channel.PacketManager;
+import io.nexum.engine.channel.packets.EventPacket;
+import io.nexum.engine.render.RenderContext;
+import io.nexum.engine.render.RenderContextConsumer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

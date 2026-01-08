@@ -1,10 +1,11 @@
 package io.nexum;
 
-import io.nexum.channel.ApplicationProcess;
-import io.nexum.models.Size;
-import io.nexum.render.Java2DWindow;
+import io.nexum.engine.Engine;
+import io.nexum.engine.channel.ApplicationProcess;
+import io.nexum.engine.models.Size;
+import io.nexum.engine.render.Java2DWindow;
 
-import static io.nexum.Engine.LOGGER;
+import static io.nexum.engine.Engine.LOGGER;
 
 public class TestMain {
     public static void main(String[] args) {

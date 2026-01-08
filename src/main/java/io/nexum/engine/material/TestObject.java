@@ -1,4 +1,4 @@
-package io.nexum.material;
+package io.nexum.engine.material;
 
 import org.jetbrains.annotations.NotNull;
 

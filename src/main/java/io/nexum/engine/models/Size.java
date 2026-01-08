@@ -1,4 +1,4 @@
-package io.nexum.models;
+package io.nexum.engine.models;
 
 public class Size {
     private final int width;
