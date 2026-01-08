@@ -16,17 +16,17 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 
-public class Nexum {
+public class Engine {
     private final int fpsLimit;
     private boolean started = false;
     private @Nullable Runnable onRender;
     private final @NotNull Size screenSize;
     private @Nullable RenderContext renderContext;
 
-    private static @Nullable Nexum instance;
+    private static @Nullable Engine instance;
     public static final Logger LOGGER = new Logger();
 
-    protected Nexum(int fpsLimit, @NotNull Size screenSize) {
+    protected Engine(int fpsLimit, @NotNull Size screenSize) {
         this.fpsLimit = Math.min(300, fpsLimit);
         this.screenSize = screenSize;
     }
@@ -91,15 +91,15 @@ public class Nexum {
         return this.screenSize;
     }
 
-    public static Nexum initialize(int fpsLimit, @NotNull Size screenSize) {
-        if(Nexum.instance != null) throw new AlreadyInitialized("Nexum já foi inicializado");
-        final Nexum nexum = new Nexum(fpsLimit, screenSize);
-        Nexum.instance = nexum;
+    public static Engine initialize(int fpsLimit, @NotNull Size screenSize) {
+        if(Engine.instance != null) throw new AlreadyInitialized("Nexum já foi inicializado");
+        final Engine nexum = new Engine(fpsLimit, screenSize);
+        Engine.instance = nexum;
 
         return nexum;
     }
 
-    public static @NotNull Nexum getInstance() {
+    public static @NotNull Engine getInstance() {
         return Objects.requireNonNull(instance);
     }
 

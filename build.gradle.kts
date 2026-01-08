@@ -3,7 +3,7 @@ plugins {
     id("java-library")
 }
 
-group = "io.nexum"
+group = "io.nexum.engine"
 version = "0.0.1-SNAPSHOT"
 
 java {

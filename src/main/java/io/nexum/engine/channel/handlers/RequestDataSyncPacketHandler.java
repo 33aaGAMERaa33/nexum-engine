@@ -1,6 +1,6 @@
 package io.nexum.channel.handlers;
 
-import io.nexum.Nexum;
+import io.nexum.Engine;
 import io.nexum.channel.PacketHandler;
 import io.nexum.channel.PacketManager;
 import io.nexum.channel.packets.RequestDataSyncPacket;
@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 public class RequestDataSyncPacketHandler implements PacketHandler<RequestDataSyncPacket> {
     @Override
     public void handle(@NotNull RequestDataSyncPacket packet) {
-        final Nexum nexumInstance = Nexum.getInstance();
+        final Engine nexumInstance = Engine.getInstance();
 
         final SyncDataPacket responsePacket = new SyncDataPacket(
                 nexumInstance.getFpsLimit(),

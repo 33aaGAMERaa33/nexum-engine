@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.concurrent.*;
 
-import static io.nexum.Nexum.LOGGER;
+import static io.nexum.Engine.LOGGER;
 
 public class Channel {
     private static @Nullable Channel instance = null;

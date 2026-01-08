@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
-import static io.nexum.Nexum.LOGGER;
+import static io.nexum.Engine.LOGGER;
 
 public class PacketManager {
     private static @Nullable PacketManager instance;

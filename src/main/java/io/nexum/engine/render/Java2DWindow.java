@@ -1,7 +1,7 @@
 package io.nexum.render;
 
 
-import io.nexum.Nexum;
+import io.nexum.Engine;
 import io.nexum.channel.Channel;
 import io.nexum.channel.PacketManager;
 import io.nexum.events.KeyboardInputEvent;
@@ -45,7 +45,7 @@ public class Java2DWindow extends JFrame {
         this.setVisible(true);
     }
 
-    public void prepare(@NotNull Nexum nexum) {
+    public void prepare(@NotNull Engine nexum) {
         nexum.setRenderContext(new Java2DRenderContext(this.getFrame()));
         nexum.setOnRender(this::repaint);
     }
@@ -67,7 +67,7 @@ public class Java2DWindow extends JFrame {
             this.addKeyListener(new KeyListener() {
                 private void onKey(KeyEvent event, boolean released) {
                     if(!canEmitEvent()) return;
-                    Nexum.getInstance().emitEvent(new KeyboardInputEvent(event.getKeyCode(), released));
+                    Engine.getInstance().emitEvent(new KeyboardInputEvent(event.getKeyCode(), released));
                 }
 
                 @Override
@@ -94,7 +94,7 @@ public class Java2DWindow extends JFrame {
                             new Offset(e.getX(), e.getY()), released
                     );
 
-                    Nexum.getInstance().emitEvent(clickEvent);
+                    Engine.getInstance().emitEvent(clickEvent);
                 }
 
                 @Override
@@ -113,7 +113,7 @@ public class Java2DWindow extends JFrame {
                 public void mouseMoved(MouseEvent e) {
                     if(!canEmitEvent()) return;
 
-                    Nexum.getInstance().emitEvent(new PointerMoveEvent(
+                    Engine.getInstance().emitEvent(new PointerMoveEvent(
                             new Offset(e.getX(), e.getY())
                     ));
                 }
@@ -127,7 +127,7 @@ public class Java2DWindow extends JFrame {
             this.addMouseWheelListener(e -> {
                 if(!canEmitEvent()) return;
 
-                Nexum.getInstance().emitEvent(new PointerScrollEvent(
+                Engine.getInstance().emitEvent(new PointerScrollEvent(
                         new Offset(e.getX(), e.getY()),
                         e.getWheelRotation(),
                         e.getScrollAmount()
@@ -155,6 +155,6 @@ public class Java2DWindow extends JFrame {
 
 
     private static boolean canEmitEvent() {
-        return Nexum.isInitialized() && Channel.isInitialized() && PacketManager.isInitialized();
+        return Engine.isInitialized() && Channel.isInitialized() && PacketManager.isInitialized();
     }
 }
