@@ -1,7 +1,6 @@
 package io.nexum;
 
 import io.nexum.channel.Channel;
-import io.nexum.channel.FrameworkProcessStorage;
 import io.nexum.channel.HeartbeatMonitor;
 import io.nexum.events.Event;
 import io.nexum.exceptions.AlreadyInitialized;
@@ -14,7 +13,6 @@ import io.nexum.render.RenderContextConsumer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.awt.*;
 import java.util.Objects;
 
 
@@ -53,23 +51,15 @@ public class Nexum {
         PacketManager.getInstance().sendPacket(new EventPacket(event));
     }
 
-    public void start() {
-        this.start("../");
-    }
-
-    public void start(@NotNull String frameworkPath) {
+    public void start(@NotNull ProcessBuilder processBuilder) {
         if(started) throw new RuntimeException("Já foi iniciado");
         started = true;
 
         try {
-            final FrameworkProcessStorage frameworkProcessStorage = FrameworkProcessStorage.initialize(
-                    frameworkPath
-            );
-
             final PacketManager packetManager = PacketManager.initialize();
 
             final Channel channel = Channel.initialize(
-                    frameworkProcessStorage,
+                    processBuilder.start(),
                     packetManager
             );
 

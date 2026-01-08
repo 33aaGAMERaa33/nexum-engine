@@ -1,7 +1,6 @@
 package io.nexum.channel.handlers;
 
 import io.nexum.Nexum;
-import io.nexum.RunInfo;
 import io.nexum.channel.PacketHandler;
 import io.nexum.channel.PacketManager;
 import io.nexum.channel.packets.RequestDataSyncPacket;
@@ -15,7 +14,7 @@ public class RequestDataSyncPacketHandler implements PacketHandler<RequestDataSy
 
         final SyncDataPacket responsePacket = new SyncDataPacket(
                 nexumInstance.getFpsLimit(),
-                RunInfo.IS_RELEASE,
+                false,
                 nexumInstance.getScreenSize()
         );
 

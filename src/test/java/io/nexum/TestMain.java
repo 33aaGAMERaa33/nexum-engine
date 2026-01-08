@@ -1,5 +1,6 @@
 package io.nexum;
 
+import io.nexum.channel.ApplicationProcess;
 import io.nexum.models.Size;
 import io.nexum.render.Java2DWindow;
 
@@ -12,7 +13,7 @@ public class TestMain {
             final Java2DWindow window = new Java2DWindow(nexum.getScreenSize());
 
             window.prepare(nexum);
-            nexum.start("../");
+            nexum.start(ApplicationProcess.build());
         } catch (Exception e) {
             e.printStackTrace();
             LOGGER.error("TestMain", e.toString());

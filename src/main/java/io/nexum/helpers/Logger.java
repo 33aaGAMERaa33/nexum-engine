@@ -1,6 +1,5 @@
 package io.nexum.helpers;
 
-import io.nexum.RunInfo;
 import org.jetbrains.annotations.NotNull;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,8 +12,6 @@ public class Logger {
             @NotNull LoggerSide side,
             Object... args
     ) {
-        if(RunInfo.IS_RELEASE) return;
-
         String message = args.length > 0
                 ? String.format(log, args)
                 : log;

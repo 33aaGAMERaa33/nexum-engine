@@ -8,8 +8,6 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.concurrent.*;
 
@@ -23,7 +21,7 @@ public class Channel {
     private final DataInputStream inputStream;
     private final DataInputStream errorStream;
     private final DataOutputStream outputStream;
-    private final FrameworkProcessStorage frameworkProcessStorage;
+    private final Process applicationProcess;
     private final BlockingQueue<byte[]> sendQueue = new LinkedBlockingQueue<>();
     private final ExecutorService sendQueueExecutor = Executors.newFixedThreadPool(1);
     private final ExecutorService incomingDataExecutors = Executors.newFixedThreadPool(2);
@@ -31,16 +29,15 @@ public class Channel {
     private boolean isRunning = false;
 
     private Channel(
-            FrameworkProcessStorage frameworkProcessStorage,
+            Process applicationProcess,
             PacketManager packetManager
     ) {
-        this.frameworkProcessStorage = frameworkProcessStorage;
         this.packetManager = packetManager;
-        final Process frameworkProcess = frameworkProcessStorage.getFrameworkProcess();
+        this.applicationProcess = applicationProcess;
 
-        this.inputStream = new DataInputStream(frameworkProcess.getInputStream());
-        this.errorStream = new DataInputStream(frameworkProcess.getErrorStream());
-        this.outputStream = new DataOutputStream(frameworkProcess.getOutputStream());
+        this.inputStream = new DataInputStream(applicationProcess.getInputStream());
+        this.errorStream = new DataInputStream(applicationProcess.getErrorStream());
+        this.outputStream = new DataOutputStream(applicationProcess.getOutputStream());
 
         Runtime.getRuntime().addShutdownHook(new Thread(this::stop));
     }
@@ -99,8 +96,8 @@ public class Channel {
             this.senderTask.cancel(true);
         }
 
-        if(frameworkProcessStorage.getFrameworkProcess().isAlive()) {
-            frameworkProcessStorage.getFrameworkProcess().destroy();
+        if(this.applicationProcess.isAlive()) {
+            this.applicationProcess.destroy();
         }
 
         this.sendQueueExecutor.shutdownNow();
@@ -154,12 +151,12 @@ public class Channel {
     }
 
     public static Channel initialize(
-            FrameworkProcessStorage frameworkProcessStorage,
+            Process applicationProcess,
             PacketManager packetManager
     ) {
         if(instance != null) throw new AlreadyInitialized("Channel já foi inicializado");
 
-        final Channel channel = new Channel(frameworkProcessStorage, packetManager);
+        final Channel channel = new Channel(applicationProcess, packetManager);
         instance = channel;
 
         return channel;
