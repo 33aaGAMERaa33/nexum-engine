@@ -11,7 +11,8 @@ enum FriendlyBufferValueTypes {
     BOOL(1),
     FLOAT(2),
     DOUBLE(3),
-    STRING(4);
+    STRING(4),
+    LONG(5);
 
     public final int id;
 
@@ -94,6 +95,17 @@ public class FriendlyBuffer {
         addBytes(bb.array());
     }
 
+    public void writeLong(long value) {
+        writeType(FriendlyBufferValueTypes.LONG);
+
+        ByteBuffer bb = ByteBuffer.allocate(8)
+                .order(ByteOrder.LITTLE_ENDIAN)
+                .putLong(value);
+
+        addBytes(bb.array());
+    }
+
+
     public void writeString(String value) {
         writeType(FriendlyBufferValueTypes.STRING);
 
@@ -161,6 +173,19 @@ public class FriendlyBuffer {
         return ByteBuffer.wrap(bytes)
                 .order(ByteOrder.LITTLE_ENDIAN)
                 .getDouble();
+    }
+
+    public long readLong() {
+        FriendlyBufferValueTypes type = readType();
+        if (type != FriendlyBufferValueTypes.LONG) {
+            throw new MismatchedTypesException(FriendlyBufferValueTypes.LONG, type);
+        }
+
+        byte[] bytes = readBytes(8);
+
+        return ByteBuffer.wrap(bytes)
+                .order(ByteOrder.LITTLE_ENDIAN)
+                .getLong();
     }
 
     public String readString() {

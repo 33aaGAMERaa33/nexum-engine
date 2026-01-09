@@ -1,7 +1,6 @@
 package io.nexum.engine;
 
 import io.nexum.engine.channel.Channel;
-import io.nexum.engine.channel.HeartbeatMonitor;
 import io.nexum.engine.events.Event;
 import io.nexum.engine.exceptions.AlreadyInitialized;
 import io.nexum.engine.helpers.Logger;
@@ -14,7 +13,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
-
 
 public class Engine {
     private final int fpsLimit;
@@ -34,17 +32,10 @@ public class Engine {
     public void render(@NotNull RenderContextConsumer consumer) {
         if(this.renderContext == null) return;
 
-        final long start = System.nanoTime();
-
         this.renderContext.beginFrame();
         consumer.consume(this.renderContext);
         this.renderContext.endFrame();
         if(this.onRender != null) this.onRender.run();
-
-        final long end = System.nanoTime();
-        final long elapsed = (end - start) / 1_000_000;
-
-        this.log("Tempo de renderização: %sms", elapsed);
     }
 
     public <T extends Event> void emitEvent(@NotNull T event) {
@@ -52,26 +43,26 @@ public class Engine {
     }
 
     public void start(@NotNull ProcessBuilder processBuilder) {
-        if(started) throw new RuntimeException("Já foi iniciado");
-        started = true;
+        if(this.started) throw new RuntimeException("Já foi iniciado");
+        this.started = true;
 
         try {
+            final Process applicationProcess = processBuilder.start();
             final PacketManager packetManager = PacketManager.initialize();
 
             final Channel channel = Channel.initialize(
-                    processBuilder.start(),
+                    applicationProcess,
                     packetManager
             );
 
             channel.listen();
-            HeartbeatMonitor.start();
         }catch(Exception e) {
             e.printStackTrace();
         }
     }
 
     public void stop() {
-        if(!started) return;
+        if(!this.started) return;
         System.exit(0);
     }
 

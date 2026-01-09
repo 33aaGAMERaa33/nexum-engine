@@ -129,8 +129,7 @@ public class Java2DWindow extends JFrame {
 
                 Engine.getInstance().emitEvent(new PointerScrollEvent(
                         new Offset(e.getX(), e.getY()),
-                        e.getWheelRotation(),
-                        e.getScrollAmount()
+                        e.getPreciseWheelRotation()
                 ));
             });
         }

@@ -12,6 +12,7 @@ public class SyncDataPacketSerializer implements PacketSerializer<SyncDataPacket
         friendlyBuffer.writeInt(packet.getScreenSize().getHeight());
         friendlyBuffer.writeInt(packet.getFpsLimit());
         friendlyBuffer.writeBool(packet.isRelease());
+        friendlyBuffer.writeLong(packet.getEnginePID());
     }
 
     @Override

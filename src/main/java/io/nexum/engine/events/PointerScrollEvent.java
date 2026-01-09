@@ -4,20 +4,14 @@ import io.nexum.engine.models.Offset;
 import org.jetbrains.annotations.NotNull;
 
 public class PointerScrollEvent extends PointerEvent {
-    private final int scrollModifier;
-    private final int scrollAmount;
+    private final double scrollDelta;
 
-    public PointerScrollEvent(@NotNull Offset position, int scrollModifier, int scrollAmount) {
+    public PointerScrollEvent(@NotNull Offset position, double scrollDelta) {
         super(position);
-        this.scrollModifier = scrollModifier;
-        this.scrollAmount = scrollAmount;
+        this.scrollDelta = scrollDelta;
     }
 
-    public int getScrollModifier() {
-        return scrollModifier;
-    }
-
-    public int getScrollAmount() {
-        return scrollAmount;
+    public double getScrollDelta() {
+        return scrollDelta;
     }
 }

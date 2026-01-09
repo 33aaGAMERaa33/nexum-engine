@@ -54,20 +54,17 @@ public class PacketManager {
         HelperDeserializerRegistry.getInstance().register(new RenderContextConsumerDeserializer());
 
         PacketHandlerRegistry.getInstance().register(new TestPacketHandler());
-        PacketHandlerRegistry.getInstance().register(new HeartBeatPacketHandler());
         PacketHandlerRegistry.getInstance().register(new SendGraphicsPacketHandler());
         PacketHandlerRegistry.getInstance().register(new SendGraphicsPacketHandler());
         PacketHandlerRegistry.getInstance().register(new RequestDataSyncPacketHandler());
         PacketHandlerRegistry.getInstance().register(new RequestTextMetricsPacketHandler());
 
         PacketSerializerRegistry.getInstance().register(new StartStartPacketSerializer());
-        PacketSerializerRegistry.getInstance().register(new HeartBeatPacketSerializer());
         PacketSerializerRegistry.getInstance().register(new EventPacketSerializer());
         PacketSerializerRegistry.getInstance().register(new TestPacketSerializer());
         PacketSerializerRegistry.getInstance().register(new SyncDataPacketSerializer());
         PacketSerializerRegistry.getInstance().register(new SendTextMetricsPacketSerializer());
 
-        PacketDeserializerRegistry.getInstance().register(new HeartBeatPacketDeserializer());
         PacketDeserializerRegistry.getInstance().register(new TestPacketDeserializer());
         PacketDeserializerRegistry.getInstance().register(new SendRenderContextPacketDeserializer());
         PacketDeserializerRegistry.getInstance().register(new RequestDataSyncPacketDeserializer());

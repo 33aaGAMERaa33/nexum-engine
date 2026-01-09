@@ -32,6 +32,7 @@ public class Channel {
             Process applicationProcess,
             PacketManager packetManager
     ) {
+        System.out.println(applicationProcess.pid());
         this.packetManager = packetManager;
         this.applicationProcess = applicationProcess;
 
@@ -61,9 +62,7 @@ public class Channel {
 
                     this.packetManager.handleReceivedData(friendlyBuffer);
                 }
-            } catch (IOException e) {
-                this.log("STDOUT fechado");
-            } catch (Exception e) {
+            }catch (Exception e) {
                 e.printStackTrace();
                 System.exit(-1);
             }

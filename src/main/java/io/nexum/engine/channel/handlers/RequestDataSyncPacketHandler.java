@@ -13,6 +13,7 @@ public class RequestDataSyncPacketHandler implements PacketHandler<RequestDataSy
         final Engine nexumInstance = Engine.getInstance();
 
         final SyncDataPacket responsePacket = new SyncDataPacket(
+                ProcessHandle.current().pid(),
                 nexumInstance.getFpsLimit(),
                 false,
                 nexumInstance.getScreenSize()
