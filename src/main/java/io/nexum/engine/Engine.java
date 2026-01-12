@@ -31,11 +31,17 @@ public class Engine {
 
     public void render(@NotNull RenderContextConsumer consumer) {
         if(this.renderContext == null) return;
+        final long start = System.nanoTime();
 
         this.renderContext.beginFrame();
         consumer.consume(this.renderContext);
         this.renderContext.endFrame();
         if(this.onRender != null) this.onRender.run();
+
+        final long end = System.nanoTime();
+        final long elapsed = (end - start) / 100_000_000;
+
+        this.log("Tempo de renderização %sms", elapsed);
     }
 
     public <T extends Event> void emitEvent(@NotNull T event) {
